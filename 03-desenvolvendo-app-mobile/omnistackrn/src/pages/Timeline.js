@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import api from '../services/api';
 
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, FlatList, StyleSheet, TouchableOpacity } from 'react-native';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
+
+import Tweet from '../components/Tweet';
 
 export default class pages extends Component {
   static navigationOptions = {
@@ -26,7 +28,7 @@ export default class pages extends Component {
 
   state = {
     tweets: []
-,  }
+  }
 
   // onInit
   async componentDidMount() {
@@ -39,7 +41,11 @@ export default class pages extends Component {
   render() {
     return (
       <View style={styles.container}>
-       { this.state.tweets.map(tweet => <Text>{tweet.author}</Text>)}
+        <FlatList
+          data={this.state.tweets}
+          keyExtractor={tweet => tweet._id}
+          renderItem={({ item }) => <Tweet tweet={item} />}
+        />
       </View>
     );
   }
