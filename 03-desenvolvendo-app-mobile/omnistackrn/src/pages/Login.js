@@ -19,7 +19,7 @@ export default class Login extends Component {
     const username = await AsyncStorage.getItem('@OmniStack:username');
 
     if (username) {
-      this.props.navigation.navigate('Timeline');
+      this.props.navigation.navigate('App');
     }
   }
 
