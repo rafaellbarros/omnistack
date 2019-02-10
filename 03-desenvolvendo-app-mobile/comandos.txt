@@ -1,0 +1,22 @@
+# pacote de navegação de telas
+yarn add react-navigation
+
+# lib de gestos (para lidar com os dedos do usuário)
+yarn add react-native-gesture-handler
+
+# comando que faz link da lib de gestos com o código nativo
+react-native link react-native-gesture-handler
+
+# snippet para criar estrutura de um componente stateless
+# quando um componente não possui estado podemos escrever ele em forma
+# de função
+rnsc
+
+# Reseta o cache do app
+react-native start --reset-cache
+
+# lib de fonts e icons
+yarn add react-native-vector-icons
+
+# comando que faz link da lib com o código nativo
+react-native link react-native-vector-icons
