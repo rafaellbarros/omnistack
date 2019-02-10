@@ -1,10 +1,18 @@
 import React, { Component } from 'react';
+import api from '../services/api';
 
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
 import Icon from 'react-native-vector-icons/Ionicons';
 
 export default class Tweet extends Component {
+
+  handleLike = () => {
+    const { _id } = this.props.tweet;
+
+    api.post(`likes/${_id}`)
+  }
+
   render() {
     const { tweet } = this.props;
     return (
@@ -12,7 +20,7 @@ export default class Tweet extends Component {
             <Text style={styles.author}>{tweet.author}</Text>
             <Text style={styles.content}>{tweet.content}</Text>
 
-            <TouchableOpacity onPress={() => {}} sytle={styles.likeButton}>
+            <TouchableOpacity onPress={this.handleLike} sytle={styles.likeButton}>
                 <View style={styles.alignIconAndText}>
                     <Icon name="ios-heart-empty" size={20} color="#999" />
                     <Text style={styles.likeText}>{tweet.likes}</Text> 
